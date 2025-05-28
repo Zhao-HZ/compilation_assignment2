@@ -1,5 +1,13 @@
 class NDFiniteAutomaton:
-    pass
+    def __init__(self):
+        pass
+
+    def accept(string):
+       pass 
 
 class NDFiniteAutomatonEps:
-    pass
+    def __init__(self):
+        pass
+
+    def accept(string):
+        pass
