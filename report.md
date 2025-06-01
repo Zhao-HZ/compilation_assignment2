@@ -57,15 +57,78 @@ Check if a string is accepted by the finite automaton machine.<br>
 ```
 
 ### Description of tests and results
-#### Test1 Results
+#### Results NFA1
 <img src="./res/nfa1.png"><br>
 Example 1: checks if a string has a suffix 01.
 
-#### Test2 Results
+#### Results NFA2
 <img src="./res/nfa2.png"><br>
 Example 2: accepts all strings over {0, 1} that contains either the substring "01" or "10".
 
-#### Test3 Results
+#### Results NFA3
 <img src="./res/nfa3.png"><br>
-
 Example 3: equivalent to the RE: `a+ba*`.
+
+```sh
+NFA1
+0101 is accepted
+1101 is accepted
+01 is accepted
+000 is not accepted
+0110 is not accepted
+1011 is not accepted
+NFA2
+0101 is accepted
+1101 is accepted
+10 is accepted
+000 is not accepted
+111 is not accepted
+1 is not accepted
+NFA3
+aaba is accepted
+aaab is accepted
+ab is accepted
+aabbaaa is not accepted
+bba is not accepted
+aaa is not accepted
+```
+
+#### Results DFA1
+<img src="./res/dfa1.png">
+
+DFA converted from NFA1.
+
+#### Results DFA2
+<img src="./res/dfa2.png">
+
+DFA converted from NFA2.
+
+#### Results DFA3
+<img src="./res/dfa3.png">
+
+DFA converted from NFA3.
+
+This program can successfully transfer DFA into NFA, the test result is as follow:
+```sh
+DFA1
+0101 is accepted
+1101 is accepted
+01 is accepted
+000 is not accepted
+0110 is not accepted
+1011 is not accepted
+DFA2
+0101 is accepted
+1101 is accepted
+10 is accepted
+000 is not accepted
+111 is not accepted
+1 is not accepted
+DFA3
+aaba is accepted
+aaab is accepted
+ab is accepted
+aabbaaa is not accepted
+bba is not accepted
+aaa is not accepted
+```

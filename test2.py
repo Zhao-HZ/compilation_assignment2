@@ -43,27 +43,62 @@ nfa3 = NFiniteAutomaton(states3, initialState3, finalStates3, alphabet3, tFuncti
 
 
 if __name__ == '__main__':
-    # print("NFA1")
-    # ex1_strs = ["0101", "1101", "01", "000", "0110", "1011"] 
-    # for str in ex1_strs:
-    #     print(str, end="")
-    #     print(" is accepted" if nfa1.accepts(str) else " is not accepted")
+    print("NFA1")
+    ex1_strs = ["0101", "1101", "01", "000", "0110", "1011"] 
+    for str in ex1_strs:
+        print(str, end="")
+        print(" is accepted" if nfa1.accepts(str) else " is not accepted")
     
-    # print("NFA2")
-    # ex2_strs = ["0101", "1101", "10", "000", "111", "1"] 
-    # for str in ex2_strs:
-    #     print(str, end="")
-    #     print(" is accepted" if nfa2.accepts(str) else " is not accepted")
+    print("NFA2")
+    ex2_strs = ["0101", "1101", "10", "000", "111", "1"] 
+    for str in ex2_strs:
+        print(str, end="")
+        print(" is accepted" if nfa2.accepts(str) else " is not accepted")
     
-    # print("NFA3")
-    # ex3_strs = ["aaba", "aaab", "ab", "aabbaaa", "bba", "aaa"] 
-    # for str in ex3_strs:
-    #     print(str, end="")
-    #     print(" is accepted" if nfa3.accepts(str) else " is not accepted")
+    print("NFA3")
+    ex3_strs = ["aaba", "aaab", "ab", "aabbaaa", "bba", "aaa"] 
+    for str in ex3_strs:
+        print(str, end="")
+        print(" is accepted" if nfa3.accepts(str) else " is not accepted")
 
-    (states1, final1) = nfa1.transfer_to_DFA() 
-    (states2, final2) = nfa2.transfer_to_DFA() 
-    (states3, final3) = nfa3.transfer_to_DFA() 
-    print(states1, final1)
-    print(states2, final2)
-    print(states3, final3)
+    # Used for test
+    # print("nfa1")
+    # print(nfa1.transfer_to_DFA())
+    # print("nfa2")
+    # print(len(nfa2.transfer_to_DFA()))
+    # print("nfa3")
+    # print(nfa3.transfer_to_DFA())
+    # print("DFA1")
+    dfa1 = nfa1.transfer_to_DFA()
+    # dfa1.show_transition_function()
+    # print("DFA2")
+    dfa2 = nfa2.transfer_to_DFA()
+    # dfa2.show_transition_function()
+    # print("DFA3")
+    dfa3 = nfa3.transfer_to_DFA()
+    # dfa3.show_transition_function()
+
+    print("DFA1")
+    ex1_strs = ["0101", "1101", "01", "000", "0110", "1011"] 
+    for str in ex1_strs:
+        print(str, end="")
+        print(" is accepted" if dfa1.accepts(str) else " is not accepted")
+    
+    print("DFA2")
+    ex2_strs = ["0101", "1101", "10", "000", "111", "1"] 
+    for str in ex2_strs:
+        print(str, end="")
+        print(" is accepted" if dfa2.accepts(str) else " is not accepted")
+    
+    print("DFA3")
+    ex3_strs = ["aaba", "aaab", "ab", "aabbaaa", "bba", "aaa"] 
+    for str in ex3_strs:
+        print(str, end="")
+        print(" is accepted" if dfa3.accepts(str) else " is not accepted")
+    print("The visualization of each DFA:")
+    print("DFA1")
+    dfa1.show_transition_function()
+    print("DFA2")
+    dfa2.show_transition_function()
+    print("DFA3")
+    dfa3.show_transition_function()

@@ -48,4 +48,50 @@ ab is accepted
 aabbaaa is not accepted
 bba is not accepted
 aaa is not accepted
+DFA1
+0101 is accepted
+1101 is accepted
+01 is accepted
+000 is not accepted
+0110 is not accepted
+1011 is not accepted
+DFA2
+0101 is accepted
+1101 is accepted
+10 is accepted
+000 is not accepted
+111 is not accepted
+1 is not accepted
+DFA3
+aaba is accepted
+aaab is accepted
+ab is accepted
+aabbaaa is not accepted
+bba is not accepted
+aaa is not accepted
+The visualization of each DFA:
+DFA1
+(frozenset({'q0', 'q1'}), '1') frozenset({'q2', 'q0'})
+(frozenset({'q0', 'q1'}), '0') frozenset({'q0', 'q1'})
+(frozenset({'q0'}), '1') frozenset({'q0'})
+(frozenset({'q0'}), '0') frozenset({'q0', 'q1'})
+(frozenset({'q2', 'q0'}), '1') frozenset({'q0'})
+(frozenset({'q2', 'q0'}), '0') frozenset({'q0', 'q1'})
+DFA2
+(frozenset({'q0', 'q1'}), '1') frozenset({'q2', 'q0', 'q3'})
+(frozenset({'q0', 'q1'}), '0') frozenset({'q0', 'q1'})
+(frozenset({'q0'}), '1') frozenset({'q2', 'q0'})
+(frozenset({'q0'}), '0') frozenset({'q0', 'q1'})
+(frozenset({'q2', 'q0', 'q3'}), '1') frozenset({'q2', 'q0', 'q3'})
+(frozenset({'q2', 'q0', 'q3'}), '0') frozenset({'q0', 'q3', 'q1'})
+(frozenset({'q0', 'q3', 'q1'}), '1') frozenset({'q2', 'q0', 'q3'})
+(frozenset({'q0', 'q3', 'q1'}), '0') frozenset({'q0', 'q3', 'q1'})
+(frozenset({'q2', 'q0'}), '1') frozenset({'q2', 'q0'})
+(frozenset({'q2', 'q0'}), '0') frozenset({'q0', 'q3', 'q1'})
+DFA3
+(frozenset({'q2'}), 'a') frozenset({'q2'})
+(frozenset({'q0', 'q1'}), 'a') frozenset({'q0', 'q1'})
+(frozenset({'q0', 'q1'}), 'b') frozenset({'q2'})
+(frozenset({'q0'}), 'a') frozenset({'q0', 'q1'})
 ```
+Note that DFAi is corresponding DFAs of NFAs(i=1, 2, 3), 

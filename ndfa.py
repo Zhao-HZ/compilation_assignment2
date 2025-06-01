@@ -108,16 +108,34 @@ class NFiniteAutomaton:
             print(self.tFunction[item]) 
 
     """
-    This functions converts NFA into NFA.
+    This functions converts NFA into DFA.
     """
     def transfer_to_DFA(self) -> DFiniteAutomaton:
         states = self.lazy_construction()
         finalStates = set()
+        tFunction = dict()
         for state in states:
             if bool(state & self.finalStates):
                 finalStates.add(state)
-        return (states, finalStates)
-    
+        for state in states:
+            for letter in self.alphabet:
+                if (state, letter) not in tFunction:
+                    tFunction[(state, letter)] = frozenset()
+                for elem in state:
+                    if (elem, letter) in self.tFunction:
+                        tFunction[(state, letter)] |= frozenset(self.tFunction[(elem, letter)])
+                if not bool(tFunction[(state, letter)]): # If the value is empty
+                    tFunction.pop((state, letter))
+        # Used for test
+        # return tFunction
+        return DFiniteAutomaton(
+            states,
+            frozenset({self.initialState}),
+            finalStates,
+            self.alphabet,
+            tFunction 
+        )
+
     """
     Auxiliary function used to generate set of states for DFA
     """
