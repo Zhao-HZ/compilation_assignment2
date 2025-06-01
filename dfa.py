@@ -1,7 +1,7 @@
 class DFiniteAutomaton:
     """
     Members of this class
-    @member_states: set of all states. Each element must be of string type.<br>
+    @member_states: set of all states. <br>
     @member_initialState: the initial state which belongs to states.<br>
     @member_finalStates: set of all final states which must be the subset of states.<br>
     @member_alphabet: alphabet of the set form. Every letter from alphabet must have only single character!<br>
@@ -22,7 +22,7 @@ class DFiniteAutomaton:
         # Aim to initialize and assign to each member variables
         self.states = states
         # Initial state must in states.
-        assert initialState in initialState, "Initial state is not in states!"
+        assert initialState in states, "Initial state is not in states!"
         self.initialState = initialState
         # final states must be a subset of states
         assert finalStates.issubset(states), "set of final states is not the subset of states."
@@ -46,18 +46,19 @@ class DFiniteAutomaton:
         self.tFunction = tFunction
 
     """
-    Check if a tring is acceptable by the finite automaton machine.<br>
+    Check if a tring is accepted by the finite automaton machine.<br>
     @param_string: string need to check. It cannot be empty!<br>
     @return: returns true if the string is accepted, Otherwise it returns false.
     """
-    def accepts(self, string):
+    def accepts(self, string) -> bool:
         # assert len(string) != 0, "Empty strings are not allowed!"
         current_state = self.initialState # set the current state to be the initial state
-        flag = False # determines if string is acceptable.
+        flag = False # determines if string is accepted.
         for letter in string: # iterates each character from string.
             # current_state and letters from the string must be valid
             # in terms of the transition function.
-            if current_state in self.iStates and letter in self.iLetters: 
+            # if current_state in self.iStates and letter in self.iLetters: 
+            if (current_state, letter) in self.tFunction.keys():
                 # compute the new state using transition function.
                 new_state = self.tFunction[(current_state, letter)]
                 # and assign to current_state
@@ -66,10 +67,16 @@ class DFiniteAutomaton:
                 # if they are not valid, the automaton will be halted.
                 # in this case, it returns false.
                 return flag
-        # if current state is final state, the string is acceptable, thereby returning true.
+        # if current state is final state, the string is accepted, thereby returning true.
         # otherwise, it returns false.
         if current_state in self.finalStates:
             flag = True
         return flag
-    
+    """
+    This function shows the transition function of this DFA
+    """
+    def show_transition_function(self):
+        for item in self.tFunction:
+            print(item, end=" ")
+            print(self.tFunction[item])
             

@@ -27,5 +27,25 @@ in your terminal.
 
 You will see the following result for assignment 2.
 ```sh
-
+NFA1
+0101 is accepted
+1101 is accepted
+01 is accepted
+000 is not accepted
+0110 is not accepted
+1011 is not accepted
+NFA2
+0101 is accepted
+1101 is accepted
+10 is accepted
+000 is not accepted
+111 is not accepted
+1 is not accepted
+NFA3
+aaba is accepted
+aaab is accepted
+ab is accepted
+aabbaaa is not accepted
+bba is not accepted
+aaa is not accepted
 ```
