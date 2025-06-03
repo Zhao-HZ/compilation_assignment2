@@ -10,7 +10,8 @@ Python 3.12.7
 No other libraries are included in these source codes.
 
 Introduction of each file:
-- `dfa.py`: contains the implementation of the deterministic finite automaton.
+- `dfa.py`: contains the implementation of deterministic finite automaton.
+- `ndfa.py`: contains the implementation of non-deterministic finite automaton.
 - `test.py1`: test file in assignment 1.
 - `test.py2`: test file in assignment 2.
 
@@ -94,4 +95,4 @@ DFA3
 (frozenset({'q0', 'q1'}), 'b') frozenset({'q2'})
 (frozenset({'q0'}), 'a') frozenset({'q0', 'q1'})
 ```
-Note that DFAi is corresponding DFAs of NFAs(i=1, 2, 3), 
+Note that DFAi are corresponding DFAs of NFAs(i=1, 2, 3), 

@@ -79,19 +79,19 @@ if __name__ == '__main__':
     # dfa3.show_transition_function()
 
     print("DFA1")
-    ex1_strs = ["0101", "1101", "01", "000", "0110", "1011"] 
+    # ex1_strs = ["0101", "1101", "01", "000", "0110", "1011"] 
     for str in ex1_strs:
         print(str, end="")
         print(" is accepted" if dfa1.accepts(str) else " is not accepted")
     
     print("DFA2")
-    ex2_strs = ["0101", "1101", "10", "000", "111", "1"] 
+    # ex2_strs = ["0101", "1101", "10", "000", "111", "1"] 
     for str in ex2_strs:
         print(str, end="")
         print(" is accepted" if dfa2.accepts(str) else " is not accepted")
     
     print("DFA3")
-    ex3_strs = ["aaba", "aaab", "ab", "aabbaaa", "bba", "aaa"] 
+    # ex3_strs = ["aaba", "aaab", "ab", "aabbaaa", "bba", "aaa"] 
     for str in ex3_strs:
         print(str, end="")
         print(" is accepted" if dfa3.accepts(str) else " is not accepted")
