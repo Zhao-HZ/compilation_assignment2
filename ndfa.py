@@ -25,7 +25,7 @@ class NFiniteAutomaton:
         # Aim to initialize and assign to each member variables
         self.states = states
         # Initial state must in states.
-        assert initialState in initialState, "Initial state is not in states!"
+        assert initialState in states, "Initial state is not in states!"
         self.initialState = initialState
         # final states must be a subset of states
         assert finalStates.issubset(states), "set of final states is not the subset of states."
@@ -111,7 +111,7 @@ class NFiniteAutomaton:
     This functions converts NFA into DFA.
     """
     def transfer_to_DFA(self) -> DFiniteAutomaton:
-        states = self.lazy_construction()
+        states = self.__lazy_construction()
         finalStates = set()
         tFunction = dict()
         for state in states:
@@ -139,7 +139,7 @@ class NFiniteAutomaton:
     """
     Auxiliary function used to generate set of states for DFA
     """
-    def lazy_construction(self) -> set:
+    def __lazy_construction(self) -> set:
         Qp = {frozenset({self.initialState})}
         Qpp = set()
         queue = deque()
